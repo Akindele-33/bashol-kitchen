@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bashol Kitchen | Food, Pastries & Bread</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="bread.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar" id="home">
+    
+    <div class="logo">
+      Bashol Kitchen 
+      <span>Restaurant</span>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="btn-nav" id="openOrder">Order Now</a>
+    </nav>
+
+    <div class="nav-icons">
+      <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+      <input type="text" id="searchBox" placeholder="Search food...">
+      
+      <i class="fa-solid fa-bag-shopping" id="cartIcon">
+        <span id="cart-count">0</span>
+      </i>
+      
+      <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
+    </div>
+  </header>
+
+  <!-- ================= HERO SWIPER - 3 SLIDES ================= -->
+  <section class="hero-swiper swiper">
+    <div class="swiper-wrapper">
+      
+      <!-- Slide 1 -->
+      <div class="swiper-slide" style="background-image: url('img/fried rice and chicken.jfif');">
+        <div class="hero-content">
+          <div class="hero-text animate-text">
+            <h1>Order Fresh Food <br>in Minutes.</h1>
+            <p>Fried Rice, Jollof, Swallows, & more. Cooked fresh daily.</p>
+            <button class="btn-yellow heroOrderBtn">Order Now</button>
+          </div>
+          <div class="hero-img bounce">
+            <img src="img/fried rice and chicken.jfif" alt="Fried Rice">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide" style="background-image: url('img/meat pie.webp');">
+        <div class="hero-content">
+          <div class="hero-text animate-text">
+            <h1>Pastries & Bread <br>Baked Daily.</h1>
+            <p>Meatpie, Sourdough, Sausage Roll. Soft and fresh.</p>
+            <button class="btn-yellow heroOrderBtn">Order Now</button>
+          </div>
+          <div class="hero-img bounce">
+            <img src="img/meat pie.webp" alt="Meatpie">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide" style="background-image: url('img/rider on bike.png');">
+        <div class="hero-content">
+          <div class="hero-text animate-text">
+            <h1>We Cook. <br>We Deliver.</h1>
+            <p>Delivered warm in 45 mins. Or it’s on us.</p>
+            <button class="btn-yellow heroOrderBtn">Order Now</button>
+          </div>
+          <div class="hero-img bounce">
+            <img src="img/rider on bike.png" alt="Rider">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="v-cut"></div>
+  </section>
+
+  <!-- ================= CATEGORIES ================= -->
+  <section class="categories reveal" id="categories">
+    <div class="cat-card" data-cat="delicacies" style="background-image: url('img/fried rice and chicken.jfif');">
+      <div class="overlay red"></div>
+      <p>Delicacies</p>
+    </div>
+
+    <div class="cat-card" data-cat="pastries" style="background-image: url('img/meat pie.webp');">
+      <div class="overlay yellow"></div>
+      <p>Pastries</p>
+    </div>
+
+    <div class="cat-card" data-cat="bread" style="background-image: url('img/nigerian bread.jfif');">
+      <div class="overlay red"></div>
+      <p>Bread</p>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+  <section class="about reveal" id="about">
+    <div class="about-img">
+      <img src="img/bakery woman.png" alt="Bashol Kitchen Chef" class="bounce">
+    </div>
+
+    <div class="about-text animate-text">
+      <h2>About Bashol Kitchen</h2>
+      <p>
+        At Bashol Kitchen, we don’t just cook food. We cook memories. 
+        From our smoky Jollof to slow-fermented Sourdough, every meal is made fresh daily with love.
+      </p>
+      <p>
+        We’re proud to serve Ikorodu and Lagos with fast delivery, warm meals, and that home-cooked taste you miss.
+      </p>
+      <button class="btn-red" id="aboutOrder">Order Now</button>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section class="products reveal" id="menu">
+    
+    <div class="product-card" data-cat="delicacies" data-name="Fried Rice + Chicken" data-price="3500">
+      <img src="img/fried rice and chicken.jfif" alt="Fried Rice">
+      <h3>Fried Rice + Chicken</h3>
+      <p>Basmati rice with crispy chicken.</p>
+      <div class="price-row">
+        <span>₦3,500</span>
+        <button class="add-cart">Order</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="delicacies" data-name="Jollof Rice + Beef" data-price="4000">
+      <img src="img/Jollof Rice and beef.jfif" alt="Jollof">
+      <h3>Jollof Rice + Beef</h3>
+      <p>Smoky party jollof.</p>
+      <div class="price-row">
+        <span>₦4,000</span>
+        <button class="add-cart">Order</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="pastries" data-name="Meatpie" data-price="800">
+      <img src="img/meat pie.webp" alt="Meatpie">
+      <h3>Meatpie</h3>
+      <p>Flaky crust, meaty filling.</p>
+      <div class="price-row">
+        <span>₦800</span>
+        <button class="add-cart">Order</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bread" data-name="Sourdough Bread" data-price="4500">
+      <img src="img/delivery bread.jfif" alt="Bread">
+      <h3>Sourdough Bread</h3>
+      <p>Slow fermented 24hrs.</p>
+      <div class="price-row">
+        <span>₦4,500</span>
+        <button class="add-cart">Order</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="egusi" data-name="egusi" data-price="4500">
+      <img src="img/Egusi Soup.jfif" alt="Bread">
+      <h3>Egusi and pounded Yam</h3>
+      <p>Slow fermented 24hrs.</p>
+      <div class="price-row">
+        <span>₦4,500</span>
+        <button class="add-cart">Order</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="amala" data-name="amala" data-price="4500">
+      <img src="img/Efo and Amala.jfif" alt="amala">
+      <h3>Amala and Efo</h3>
+      <p>Slow fermented 24hrs.</p>
+      <div class="price-row">
+        <span>₦4,500</span>
+        <button class="add-cart">Order</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= DELIVERY / TRACK ================= -->
+  <section class="delivery reveal">
+    <div class="delivery-img">
+      <img src="img/rider on bike.png" alt="Rider" class="bike bounce">
+    </div>
+
+    <div class="delivery-text">
+      <h2>Track Your Order</h2>
+      <input type="text" id="userLocation" placeholder="Enter your area e.g Ikorodu Garage">
+      <button class="btn-red" id="trackBtn">Track Order</button>
+      <p id="etaText"></p>
+    </div>
+  </section>
+
+  <!-- ================= COMBOS ================= -->
+  <section class="combos reveal">
+    <h2>Combo Deals</h2>
+    <div class="combo-grid">
+      <div class="combo-card">
+        <img src="img/rice and chicken with coke.webp" alt="">
+        <h3>Rice + Chicken + Drink</h3>
+        <p>₦4,000</p>
+      </div>
+      <div class="combo-card">
+        <img src="img/meat pie and drink.jfif" alt="">
+        <h3>Meatpie x3 + Juice</h3>
+        <p>₦2,500</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="reviews reveal" id="reviews">
+    <h2>Customer Reviews</h2>
+    
+    <form id="reviewForm">
+      <input type="text" id="revName" placeholder="Your Name" required>
+      
+      <div class="star-rating">
+        <i class="fa-regular fa-star" data-value="1"></i>
+        <i class="fa-regular fa-star" data-value="2"></i>
+        <i class="fa-regular fa-star" data-value="3"></i>
+        <i class="fa-regular fa-star" data-value="4"></i>
+        <i class="fa-regular fa-star" data-value="5"></i>
+      </div>
+      
+      <input type="hidden" id="revStar" value="0">
+      <textarea id="revText" placeholder="Leave a review..." required></textarea>
+      <button class="btn-red">Post Review</button>
+    </form>
+
+    <div id="reviewList" class="review-grid"></div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer reveal" id="contact">
+    <div class="footer-grid">
+      <div>
+        <h3>Bashol Kitchen</h3>
+        <p>Ikorodu, Lagos State, Nigeria</p>
+        <p>Open: 7AM - 9PM Daily</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><i class="fa-solid fa-phone"></i> +234 80X XXXX</p>
+        <p><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</p>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="copy">© 2026 Bashol Kitchen. All Rights Reserved.</p>
+  </footer>
+
+  <!-- ================= ORDER MODAL ================= -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Place Your Order</h2>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="delicacies">Food</button>
+        <button class="tab-btn" data-tab="pastries">Pastries</button>
+        <button class="tab-btn" data-tab="bread">Bread</button>
+      </div>
+      <form id="orderForm">
+        <select id="itemSelect" required></select>
+        <label>Quantity:</label>
+        <input type="number" id="qty" value="1" min="1">
+        <label>WhatsApp Number:</label>
+        <input type="tel" id="wa" placeholder="080xxxxxxxx" required>
+        <h3 id="totalBill">Total: ₦0</h3>
+        <button type="submit" class="btn-red">Send to WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CART MODAL ================= -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <span class="close-cart">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cartItems"></div>
+      <h3 id="cartTotal">Total: ₦0</h3>
+      <button class="btn-red" id="checkoutCart">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="bread.js"></script>
+
+</body>
+</html>

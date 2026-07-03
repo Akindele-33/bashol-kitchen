@@ -1,0 +1,882 @@
+/* =========================================
+   1. ROOT COLORS
+========================================= */
+:root {
+  --red: #B22222;
+  --yellow: #F4A300;
+  --cream: #FFF8F0;
+  --dark: #2B1B12;
+}
+
+/* =========================================
+   2. RESET + BASE
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   3. ANIMATIONS
+========================================= */
+@keyframes float {
+ 0%   { transform: translateY(0); }
+ 50%  { transform: translateY(-15px); }
+ 100% { transform: translateY(0); }
+}
+
+.bounce {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes slideLeft {
+  from { 
+    opacity: 0; 
+    transform: translateX(-50px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+.animate-text {
+  animation: slideLeft 0.8s ease forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   4. NAVBAR - DESKTOP FIRST
+========================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--yellow);
+  padding: 15px 8%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.logo span {
+  color: var(--red);
+  font-size: 0.9rem;
+  font-family: 'Poppins';
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.btn-nav {
+  background: var(--red);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-nav:hover {
+  background: var(--dark);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  position: relative;
+}
+
+#cartIcon {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+#searchBox {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 200px;
+}
+
+#searchBox.show {
+  display: block;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+/* =========================================
+   5. HERO SECTION
+========================================= */
+.hero-swiper {
+  height: 90vh;
+  position: relative;
+  min-height: 600px;
+}
+
+.hero-swiper .swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-swiper .swiper-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(178, 34, 34, 0.85);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 8%;
+  color: #fff;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 550px;
+}
+
+.hero-text h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.hero-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+}
+
+.btn-yellow {
+  background: var(--yellow);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.btn-yellow:hover {
+  background: var(--dark);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.v-cut {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--cream);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  z-index: 3;
+}
+
+/* =========================================
+   6. BUTTONS
+========================================= */
+.btn-red {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.btn-red:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   7. CATEGORIES
+========================================= */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px 8%;
+  margin-top: -40px;
+}
+
+.cat-card {
+  height: 200px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.cat-card:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+  border-radius: 20px;
+}
+
+.overlay.red { 
+  background: var(--red); 
+}
+
+.overlay.yellow { 
+  background: var(--yellow); 
+}
+
+.cat-card p {
+  position: relative;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   8. ABOUT SECTION
+========================================= */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 8%;
+  align-items: center;
+  background: #fff;
+}
+
+.about-img {
+  display: flex;
+  justify-content: center;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2rem);
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* =========================================
+   9. PRODUCTS
+========================================= */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 40px 8%;
+}
+
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-card.hidden {
+  display: none;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price-row span {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.price-row button {
+  background: var(--yellow);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.price-row button:hover {
+  background: var(--dark);
+  color: #fff;
+}
+
+/* =========================================
+   10. DELIVERY
+========================================= */
+.delivery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px 8%;
+  background: var(--cream);
+  align-items: center;
+}
+
+.delivery-img {
+  display: flex;
+  justify-content: center;
+}
+
+.bike {
+  width: 100%;
+  max-width: 280px;
+}
+
+.delivery-text h2 {
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
+  margin-bottom: 15px;
+}
+
+#userLocation {
+  padding: 12px;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+#etaText {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* =========================================
+   11. COMBOS
+========================================= */
+.combos {
+  padding: 40px 8%;
+  text-align: center;
+}
+
+.combos h2 {
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
+  margin-bottom: 20px;
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.combo-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.combo-card:hover {
+  transform: scale(1.05);
+}
+
+.combo-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   12. REVIEWS
+========================================= */
+.reviews {
+  padding: 40px 8%;
+  background: #fff;
+  text-align: center;
+}
+
+.reviews h2 {
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
+  margin-bottom: 20px;
+}
+
+.reviews form {
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  display: grid;
+  gap: 12px;
+}
+
+.reviews input,
+.reviews textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.8rem;
+  color: #ccc;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.star-rating i.active {
+  color: var(--yellow);
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: var(--cream);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+/* =========================================
+   13. FOOTER
+========================================= */
+.footer {
+  background: var(--dark);
+  color: #fff;
+  padding: 35px 8%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 15px;
+}
+
+.footer h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  font-size: 1.3rem;
+}
+
+.socials a {
+  color: #fff;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: var(--yellow);
+}
+
+.copy {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   14. MODAL
+========================================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+}
+
+.close,
+.close-cart {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--red);
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tab-btn.active {
+  background: var(--red);
+  color: #fff;
+}
+
+#itemSelect,
+#qty,
+#wa {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  gap: 10px;
+}
+
+/* =========================================
+   15. RESPONSIVE - TABLET 1024px to 768px
+========================================= */
+@media (max-width: 1024px) {
+  
+  .navbar {
+    padding: 15px 5%;
+  }
+
+  .hero-content {
+    padding: 0 5%;
+    gap: 30px;
+  }
+
+  .categories,
+  .about,
+  .products,
+  .delivery,
+  .combos,
+  .reviews,
+  .footer {
+    padding: 40px 5%;
+  }
+
+  .hero-img img {
+    max-width: 380px;
+  }
+
+}
+
+/* =========================================
+   16. RESPONSIVE - TABLET 768px
+========================================= */
+@media (max-width: 768px) {
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: var(--yellow);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    gap: 15px;
+  }
+
+  .nav-links.show { 
+    display: flex; 
+  }
+
+  .menu-toggle { 
+    display: block; 
+  }
+
+  .hero-swiper {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-content { 
+    flex-direction: column; 
+    text-align: center;
+    padding: 60px 5%;
+    gap: 30px;
+  }
+
+  .hero-img img {
+    max-width: 320px;
+  }
+
+  .about,
+  .delivery { 
+    grid-template-columns: 1fr; 
+    text-align: center;
+    gap: 30px;
+  }
+
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #searchBox {
+    right: 50px;
+    width: 180px;
+  }
+
+}
+
+/* =========================================
+   17. RESPONSIVE - MOBILE 480px
+========================================= */
+@media (max-width: 480px) {
+  
+  .navbar {
+    padding: 12px 4%;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .hero-content {
+    padding: 40px 4%;
+  }
+
+  .hero-img img {
+    max-width: 280px;
+  }
+
+  .categories {
+    grid-template-columns: 1fr;
+    padding: 30px 4%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    padding: 30px 4%;
+  }
+
+  .combo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    padding: 20px;
+  }
+
+  .cat-card {
+    height: 160px;
+  }
+
+  #userLocation {
+    max-width: 100%;
+  }
+
+}
+
+/* =========================================
+   18. RESPONSIVE - SMALL PHONE 360px
+========================================= */
+@media (max-width: 360px) {
+  
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-yellow,
+  .btn-red {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+}
